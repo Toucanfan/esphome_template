@@ -1,0 +1,8 @@
+This is a template for an esphome project for one or more targets (i.e. ESP32 boards).
+It is entirely self-contained and does not interfere with the host environment.
+
+To get started, simply follow these instructions:
+
+1. Setup the environment by sourcing 'setup_env.sh' (only bash shell is supported)
+2. Simply run 'esphome wizard skeleton.yaml' to configure your target, followed by 'esphome run skeleton.yaml'
+3. To unload the environment, simply source 'unload_env.sh'

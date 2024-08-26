@@ -1,0 +1,30 @@
+esphome:
+  name: skeleton
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "1234"
+
+ota:
+  - platform: esphome
+    password: "1234"
+
+wifi:
+  ssid: "MySSID"
+  password: "MyPassword"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Skeleton Fallback Hotspot"
+    password: "Kt303zzESEFw"
+
+captive_portal:
+    

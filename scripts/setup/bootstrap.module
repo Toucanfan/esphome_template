@@ -1,0 +1,20 @@
+#%Module1.0
+
+#depends-on esp-idf
+
+set projectRoot [file normalize [file dirname $ModulesCurrentModulefile]/../..]
+set pythonEnvDir [file normalize $projectRoot/_env/python]
+set platformIoDir [file normalize $projectRoot/_env/platformio]
+
+if {[module-info command] in {load}} {
+	if {![file exists $pythonEnvDir]} {
+		puts stderr "Creating Python virtual environment: $pythonEnvDir"
+		exec -- python3 -m venv --clear $pythonEnvDir
+		exec -- $pythonEnvDir/bin/pip --no-cache-dir install --upgrade pip wheel
+		exec -- $pythonEnvDir/bin/pip --no-cache-dir install -r $projectRoot/scripts/setup/requirements.txt
+	}
+}
+
+source-sh bash $pythonEnvDir/bin/activate
+
+setenv PLATFORMIO_CORE_DIR $platformIoDir
